@@ -34,6 +34,7 @@ Sources:
 
 - NA: rating_chooses_appropriate_action (80), rating_identifies_issues_opportunities (80), rating_involves_others (85)  
 
+![](/assets/amy-cor.png)
 
 ## Randy
 
