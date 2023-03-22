@@ -1,4 +1,5 @@
 # Project Notes
+See [here](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax) on how to use markdown to format this document.
 
 ## Zachary
 Total Records: 1466  
