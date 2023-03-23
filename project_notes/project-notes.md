@@ -31,6 +31,8 @@ Sources:
 [tidymodels](https://www.tidymodels.org/)  
 [Text Mining with R](https://www.tidytextmining.com/index.html)  
 
+[Ash's EDA](/R/ash-eda.md)
+
 ## Amy
 
 - NA: rating_chooses_appropriate_action (80), rating_identifies_issues_opportunities (80), rating_involves_others (85)  
