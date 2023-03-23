@@ -1,0 +1,219 @@
+---
+title: "Ash's EDA"
+author: "Ashleigh Wilson"
+date: "2023-03-23"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  echo = TRUE,
+  message = FALSE)
+
+library(tidyverse)
+library(tidytext)
+```
+
+
+## Analyzing word frequencies  in exercises
+
+```{r}
+# read in the tidy data set
+tidy_train_data <- read_csv("data/tidy_stopwords_removed.csv")
+
+```
+
+
+```{r}
+# this code transforms the text exercises from wide to long format. 
+df_long <- pivot_longer(
+  tidy_train_data,
+  cols = starts_with("text"),
+  names_to = "exercises",
+  values_to = "text"
+)
+
+```
+
+
+```{r}
+# this unnests the text into tokens and finds the count of words per exercise
+exercise_words_freq <- df_long |> 
+  select(exercises, text) |> 
+  unnest_tokens(word, text) |> 
+  count(exercises, word, sort = TRUE)
+
+exercise_words_freq
+```
+
+
+### Term Frequency and Inverse Document Freqency
+
+- term frequency (tf), how frequently a word occurs in a document
+- tf-idf is intended to measure how important a word is to a document in a collection (or corpus) of documents. 
+  - The idea of tf-idf is to find the important words for the content of each document by decreasing the weight for commonly used words and increasing the weight for words that are not used very much.
+```{r}
+# exercise_words_freq <- left_join(exercise_words_freq, total_words_freq)
+
+# Bind the term frequency and inverse document frequency and then sort by words with high tf_idf (important words by weight)
+exercise_words_tf_freq <- exercise_words_freq |> 
+  bind_tf_idf(word, exercises, n) |> 
+  arrange(desc(tf_idf))
+
+exercise_words_tf_freq
+```
+
+
+
+```{r}
+# this code plots the top 15 highest tf-idf for each exercise
+exercise_words_tf_freq |> 
+  group_by(exercises) |> 
+  filter(exercises %in% c("text_exercise_4", "text_exercise_5", "text_exercise_6", "text_exercise_7")) |> 
+  slice_max(tf_idf, n = 15) |>
+  ungroup() |> 
+  ggplot(aes(tf_idf, fct_reorder(word, tf_idf), fill = exercises)) + 
+  geom_col(show.legend = FALSE) + 
+  facet_wrap(~exercises, ncol = 2, scales = "free") + 
+  labs(y = NULL) # this removes the y-axis label
+
+
+exercise_words_tf_freq |> 
+  group_by(exercises) |> 
+  filter(exercises %in% c("text_exercise_8", "text_exercise_9", "text_exercise_10", "text_exercise_11")) |> 
+  slice_max(tf_idf, n = 15) |> 
+  ungroup() |> 
+  ggplot(aes(tf_idf, fct_reorder(word, tf_idf), fill = exercises)) +
+  geom_col(show.legend = FALSE) +
+  facet_wrap(~exercises, ncol = 2, scales = "free") +
+  labs(y = NULL)
+
+exercise_words_tf_freq |> 
+  group_by(exercises) |> 
+  filter(exercises %in% c("text_exercise_12", "text_exercise_13", "text_exercise_14", "text_exercise_15")) |> 
+  slice_max(tf_idf, n = 15) |> 
+  ungroup() |> 
+  ggplot(aes(tf_idf, fct_reorder(word, tf_idf), fill = exercises)) +
+  geom_col(show.legend = FALSE) +
+  facet_wrap(~exercises, ncol = 2, scales = "free") +
+  labs(y = NULL)
+
+exercise_words_tf_freq |> 
+  group_by(exercises) |> 
+  filter(exercises %in% c("text_exercise_16", "text_exercise_17", "text_exercise_18", "text_exercise_19")) |> 
+  slice_max(tf_idf, n = 15) |> 
+  ungroup() |> 
+  ggplot(aes(tf_idf, fct_reorder(word, tf_idf), fill = exercises)) +
+  geom_col(show.legend = FALSE) +
+  facet_wrap(~exercises, ncol = 2, scales = "free") +
+  labs(y = NULL)
+
+exercise_words_tf_freq |> 
+  group_by(exercises) |> 
+  filter(exercises %in% c("text_exercise_final")) |> 
+  slice_max(tf_idf, n = 15) |> 
+  ungroup() |> 
+  ggplot(aes(tf_idf, fct_reorder(word, tf_idf), fill = exercises)) +
+  geom_col(show.legend = FALSE) +
+  facet_wrap(~exercises, ncol = 2, scales = "free") +
+  labs(y = NULL)
+```
+
+
+
+## Analyzing n-grams
+
+Analyzing bi-grams
+```{r}
+# create a dataframe that splits the exercise texts into bigrams (two consecutive words)
+df_bigrams <- df_long |> 
+  select(exercises, text) |>
+  unnest_tokens(bigram, text, token = "ngrams", n = 2)
+  
+df_bigrams
+```
+
+```{r}
+# I want to remove stop words (i.e., and, the, is, etc.).
+# The code separates the bigrams into two columns of single words and removes stop words from both columns.
+df_bigrams_sep <- df_bigrams |> 
+  separate(bigram, c("word1","word2"), sep = " ") |> 
+  filter(!word1 %in% stop_words$word) |> 
+  filter(!word2 %in% stop_words$word)
+
+```
+
+
+```{r}
+# after removing stop words, combine the single word columns back into bigrams.
+df_bigrams_unite <- df_bigrams_sep |> 
+  unite(bigram, word1, word2, sep = " ")
+
+df_bigrams_unite
+```
+
+```{r}
+# Bind the term frequency and inverse document frequency and then sort by words with high tf_idf (important words by weight)
+df_bigrams_counts <- df_bigrams_unite |> 
+  count(exercises, bigram) |> 
+  bind_tf_idf(bigram, exercises, n) |> 
+  arrange(desc(tf_idf))
+
+df_bigrams_counts
+```
+
+
+```{r}
+# plot the top 15 highest tf-idf for each exercise
+df_bigrams_counts |> 
+  group_by(exercises) |> 
+  filter(exercises %in% c("text_exercise_4", "text_exercise_5", "text_exercise_6", "text_exercise_7")) |> 
+  slice_max(tf_idf, n = 10) |> 
+  ungroup() |> 
+  ggplot(aes(tf_idf, fct_reorder(bigram, tf_idf), fill = exercises)) +
+  geom_col(show.legend = FALSE) +
+  facet_wrap(~exercises, ncol = 2, scales = "free") +
+  labs(y = NULL)
+
+df_bigrams_counts |> 
+  group_by(exercises) |> 
+  filter(exercises %in% c("text_exercise_8", "text_exercise_9", "text_exercise_10", "text_exercise_11")) |> 
+  slice_max(tf_idf, n = 10) |> 
+  ungroup() |> 
+  ggplot(aes(tf_idf, fct_reorder(bigram, tf_idf), fill = exercises)) +
+  geom_col(show.legend = FALSE) +
+  facet_wrap(~exercises, ncol = 2, scales = "free") +
+  labs(y = NULL)
+
+df_bigrams_counts |> 
+  group_by(exercises) |> 
+  filter(exercises %in% c("text_exercise_12", "text_exercise_13", "text_exercise_14", "text_exercise_15")) |> 
+  slice_max(tf_idf, n = 10) |> 
+  ungroup() |> 
+  ggplot(aes(tf_idf, fct_reorder(bigram, tf_idf), fill = exercises)) +
+  geom_col(show.legend = FALSE) +
+  facet_wrap(~exercises, ncol = 2, scales = "free") +
+  labs(y = NULL)
+
+df_bigrams_counts |> 
+  group_by(exercises) |> 
+  filter(exercises %in% c("text_exercise_16", "text_exercise_17", "text_exercise_18", "text_exercise_19")) |> 
+  slice_max(tf_idf, n = 10) |> 
+  ungroup() |> 
+  ggplot(aes(tf_idf, fct_reorder(bigram, tf_idf), fill = exercises)) +
+  geom_col(show.legend = FALSE) +
+  facet_wrap(~exercises, ncol = 2, scales = "free") +
+  labs(y = NULL)
+
+df_bigrams_counts |> 
+  group_by(exercises) |> 
+  filter(exercises %in% c("text_exercise_final")) |> 
+  slice_max(tf_idf, n = 10) |> 
+  ungroup() |> 
+  ggplot(aes(tf_idf, fct_reorder(bigram, tf_idf), fill = exercises)) +
+  geom_col(show.legend = FALSE) +
+  facet_wrap(~exercises, ncol = 2, scales = "free") +
+  labs(y = NULL)
+```
+
+
