@@ -28,7 +28,7 @@ Indicators of decision making:
 
 - Solution: Express concerns over data privacy and advise Tracy against taking immediate action.
 
-Indicators: 1*, 3, 4, 6
+- Indicators: 1*, 3, 4, 6
 
 ## Exercise 6
 
@@ -36,7 +36,7 @@ Indicators: 1*, 3, 4, 6
 
 - Solution: Recognize that moving Debby to another team does not resolve the issue and coach JJ on direct approaches that involve Debby.
 
-Indicators: 1, 3, 4
+- Indicators: 1, 3, 4
 
 ## Exercise 7
 
@@ -44,7 +44,7 @@ Indicators: 1, 3, 4
 
 - Solution: Investigate the rumor (involve Cory) to assess its credibility, advise JJ not to overreact to rumors, and explain why hand picking members is a bad strategy. 
 
-Indicators: 1, 3, 4, 5, 6
+- Indicators: 1, 3, 4, 5, 6
 
 ## Exercise 8
 
