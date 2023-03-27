@@ -3,25 +3,6 @@ date: "2023-03-26"
 
 # Background information 
 
-*Interaction you saw earlier today: Larry Hodges and Emily Carson disagree about SEQUENCE.
-
-*Debby Britzki: Request to move a team member with performance problems to another team.
-
-*Kirkland plant: Concern about team members transferring from an older plant.
-*Professional conduct: Salesperson unnerved by team member behavior during customer tour.
-SEQUENCE talk: Workers grumbling over extra effort without extra pay under SEQUENCE.
-*Team focus: Data indicate higher error rates when the team lead can’t support the group.
-Theft of company information: J.J. Paxton is suspected of stealing company-confidential information.
-Turntable proposal: New “turntable” design for trim install.
-Upgrades to robot software: IT proposes software rollout plan.
-Victory lunch: Al and Paul will buy lunch for the group leader with better performance survey results.
-*Customer satisfaction insights: Tracy Hurdle reports research on customer satisfaction.
-*Promotion: There is new room in the budget to promote a part-time employee to full-time.
-Weedler Contracting: A customer is suspected of abusing the company’s replacement policies.
-Eluto Caplanu: Someone has placed an insulting message on Eluto’s lunch.
-*Effective mentoring pays dividends: Taylor mentored Jerry Winters and presents the results.
-*Bench strength: Representatives must be signed up for training per company policy.
-
 Indicators of decision making: 
 
 1. chooses appropriate action
