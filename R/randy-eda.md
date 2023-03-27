@@ -4,7 +4,9 @@ date: "2023-03-26"
 # Background information 
 
 *Interaction you saw earlier today: Larry Hodges and Emily Carson disagree about SEQUENCE.
+
 *Debby Britzki: Request to move a team member with performance problems to another team.
+
 *Kirkland plant: Concern about team members transferring from an older plant.
 *Professional conduct: Salesperson unnerved by team member behavior during customer tour.
 SEQUENCE talk: Workers grumbling over extra effort without extra pay under SEQUENCE.
