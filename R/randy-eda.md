@@ -1,7 +1,7 @@
 Randy's EDA
 date: "2023-03-26"
 
-# Background information 
+## Background information 
 
 Indicators of decision making: 
 
@@ -14,7 +14,7 @@ Indicators of decision making:
 
 7. decision making
 
-## Exercise 4
+### Exercise 4
 
 - Problem: The participant observes Larry and Emily having a heated disagreement over SEQUENCE.
 
@@ -22,7 +22,7 @@ Indicators of decision making:
 
 - Indicators: 1, 2*, 4
 
-## Exercise 5
+### Exercise 5
 
 - Problem: Tracy found a customer service insight using confidential company data and wishes to share the results either internally or externally.The insight is that the length of a call has some relationship with customer satisfaction.
 
@@ -30,7 +30,7 @@ Indicators of decision making:
 
 - Indicators: 1*, 3, 4, 6
 
-## Exercise 6
+### Exercise 6
 
 - Problem: JJ wishes to move Debby to another team due to performance issues, namely absenteeism. Debby's issues seem to stem from a personal issue.
 
@@ -38,7 +38,7 @@ Indicators of decision making:
 
 - Indicators: 1, 3, 4
 
-## Exercise 7
+### Exercise 7
 
 - Problem: JJ heard rumors about the Kirkland plant transferring employees to their facility. JJ proposes that team leads hand pick the members transferred to their departments.
 
@@ -46,7 +46,7 @@ Indicators of decision making:
 
 - Indicators: 1, 3, 4, 5, 6
 
-## Exercise 8
+### Exercise 8
 
 - Problem: Taylor is going on vacation and recommends her mentee, Jerry, as her backfill. Jerry has strong technical and product skills, but is rated poorly by teammates on communication and fairness.
 
@@ -54,7 +54,7 @@ Indicators of decision making:
 
 - Indicators: 1, 4\*, 5*
 
-## Exercise 9
+### Exercise 9
 
 - Problem: Velma, a potential customer, toured the office and met with sales representatives. During the visit, she observed sexually unprofessional conduct from a few team members.
 
@@ -62,7 +62,7 @@ Indicators of decision making:
 
 - Indicators: 1, 2, 3, 4, 6
 
-## Exercise 10
+### Exercise 10
 
 - Problem: There is new room in the budget to promote a part-time employee to full-time. Haley recommends Blaine or Eden for the role, based on productivity scores.
 
@@ -70,7 +70,7 @@ Indicators of decision making:
 
 - Indicators: 1, 3, 5*
 
-## Exercise 11
+### Exercise 11
 
 - Problem: Pick time slot and room to attend a meeting with Al Howard as the presenter.
 
@@ -78,7 +78,7 @@ Indicators of decision making:
 
 - Indicators: 1, 5
 
-## Exercise 12
+### Exercise 12
 
 - Problem: Error rates increase when JJ covers for other team members.
 
@@ -86,7 +86,7 @@ Indicators of decision making:
 
 - Indicators: 1, 4, 5*, 6
 
-## Exercise 13
+### Exercise 13
 
 - Problem: Participant needs to nominate 3 level 1 reps for training to work at level 2
 
@@ -94,7 +94,7 @@ Indicators of decision making:
 
 - Indicators: 1, 2, 3*, 5
 
-## Exercise 14
+### Exercise 14
 
 - Problem: 
 
